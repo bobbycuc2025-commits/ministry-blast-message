@@ -1,5 +1,17 @@
 {
-  "rootDirectory": "apps/ui",
-  "buildCommand": "pnpm export",
-  "outputDirectory": "out"
+  "builds": [
+    {
+      "src": "apps/ui/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "out"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
 }
