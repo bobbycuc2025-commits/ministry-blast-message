@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import Layout from '../components/Layout';
-import QRCode from 'qrcode.react';
+import { useState, useEffect } from "react";
+import Layout from "../components/Layout";
+import { QRCodeSVG } from "qrcode.react";
 
 export default function Settings() {
   const [whatsappStatus, setWhatsappStatus] = useState<any>(null);
@@ -8,7 +8,7 @@ export default function Settings() {
 
   useEffect(() => {
     fetchWhatsAppStatus();
-    const interval = setInterval(fetchWhatsAppStatus, 5000); // Poll every 5 seconds
+    const interval = setInterval(fetchWhatsAppStatus, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -19,30 +19,30 @@ export default function Settings() {
       const data = await response.json();
       setWhatsappStatus(data);
     } catch (error) {
-      console.error('Failed to fetch WhatsApp status:', error);
+      console.error("Failed to fetch WhatsApp status:", error);
     } finally {
       setLoading(false);
     }
   };
 
   const handleDisconnect = async () => {
-    if (!confirm('Are you sure you want to disconnect WhatsApp?')) return;
+    if (!confirm("Are you sure you want to disconnect WhatsApp?")) return;
 
     try {
       const apiUrl = await getApiUrl();
-      await fetch(`${apiUrl}/whatsapp/disconnect`, { method: 'POST' });
-      alert('WhatsApp disconnected successfully');
+      await fetch(`${apiUrl}/whatsapp/disconnect`, { method: "POST" });
+      alert("WhatsApp disconnected successfully");
       fetchWhatsAppStatus();
     } catch (error) {
-      alert('Failed to disconnect WhatsApp');
+      alert("Failed to disconnect WhatsApp");
     }
   };
 
   const getApiUrl = async (): Promise<string> => {
-    if (typeof window !== 'undefined' && (window as any).electron) {
+    if (typeof window !== "undefined" && (window as any).electron) {
       return await (window as any).electron.getApiUrl();
     }
-    return process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+    return process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
   };
 
   return (
@@ -87,7 +87,8 @@ export default function Settings() {
 
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                   <p className="text-blue-800 text-sm">
-                    💡 <strong>Tip:</strong> Your WhatsApp session is active. You can now send messages to your contacts!
+                    💡 <strong>Tip:</strong> Your WhatsApp session is active.
+                    You can now send messages to your contacts!
                   </p>
                 </div>
               </div>
@@ -98,29 +99,41 @@ export default function Settings() {
                     ⚠️ WhatsApp Not Connected
                   </p>
                   <p className="text-yellow-700 text-sm">
-                    Scan the QR code below with WhatsApp on your phone to connect.
+                    Scan the QR code below with WhatsApp on your phone to
+                    connect.
                   </p>
                 </div>
 
                 <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
                   <div className="flex flex-col items-center">
-                    <h3 className="text-lg font-semibold mb-4">Scan This QR Code</h3>
-                    
+                    <h3 className="text-lg font-semibold mb-4">
+                      Scan This QR Code
+                    </h3>
+
                     <div className="bg-white p-4 rounded-lg border-2 border-gray-200">
-                      <QRCode 
-                        value={whatsappStatus.qrCode} 
+                      <QRCodeSVG
+                        value={whatsappStatus.qrCode}
                         size={256}
                         level="M"
                       />
                     </div>
 
                     <div className="mt-6 space-y-2 text-sm text-gray-600 max-w-md">
-                      <p className="font-semibold text-gray-800">📱 How to scan:</p>
+                      <p className="font-semibold text-gray-800">
+                        📱 How to scan:
+                      </p>
                       <ol className="list-decimal list-inside space-y-1 ml-2">
                         <li>Open WhatsApp on your phone</li>
-                        <li>Tap <strong>⋮ menu</strong> (Android) or <strong>Settings</strong> (iPhone)</li>
-                        <li>Tap <strong>Linked Devices</strong></li>
-                        <li>Tap <strong>Link a Device</strong></li>
+                        <li>
+                          Tap <strong>⋮ menu</strong> (Android) or{" "}
+                          <strong>Settings</strong> (iPhone)
+                        </li>
+                        <li>
+                          Tap <strong>Linked Devices</strong>
+                        </li>
+                        <li>
+                          Tap <strong>Link a Device</strong>
+                        </li>
                         <li>Point your camera at this QR code</li>
                       </ol>
                     </div>
@@ -138,7 +151,9 @@ export default function Settings() {
               <div className="text-center py-8">
                 <div className="animate-pulse">
                   <p className="text-gray-600">⏳ Initializing WhatsApp...</p>
-                  <p className="text-sm text-gray-500 mt-2">Please wait, QR code will appear shortly</p>
+                  <p className="text-sm text-gray-500 mt-2">
+                    Please wait, QR code will appear shortly
+                  </p>
                 </div>
                 <button
                   onClick={fetchWhatsAppStatus}
@@ -156,10 +171,12 @@ export default function Settings() {
               <span className="text-2xl mr-2">🛡️</span>
               Anti-Spam Protection
             </h2>
-            
+
             <div className="space-y-4">
               <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                <p className="text-green-800 font-semibold mb-2">✅ Protection Active</p>
+                <p className="text-green-800 font-semibold mb-2">
+                  ✅ Protection Active
+                </p>
                 <div className="text-sm text-green-700 space-y-1">
                   <p>• 3-8 second random delay between messages</p>
                   <p>• Maximum 40 messages per hour</p>
@@ -171,7 +188,9 @@ export default function Settings() {
 
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                 <p className="text-blue-800 text-sm">
-                  💡 <strong>Tip:</strong> These limits help prevent your WhatsApp from being flagged as spam. The system automatically manages delays and pauses.
+                  💡 <strong>Tip:</strong> These limits help prevent your
+                  WhatsApp from being flagged as spam. The system automatically
+                  manages delays and pauses.
                 </p>
               </div>
             </div>
@@ -183,11 +202,12 @@ export default function Settings() {
               <span className="text-2xl mr-2">💬</span>
               SMS Provider
             </h2>
-            
+
             <div className="space-y-4">
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
                 <p className="text-gray-700 text-sm">
-                  SMS provider is configured in your server environment variables. Contact your administrator to change SMS settings.
+                  SMS provider is configured in your server environment
+                  variables. Contact your administrator to change SMS settings.
                 </p>
               </div>
 
@@ -210,12 +230,13 @@ export default function Settings() {
               <span className="text-2xl mr-2">📊</span>
               Google Sheets Database
             </h2>
-            
+
             <div className="space-y-4">
               <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                 <p className="text-green-800 font-semibold">✅ Connected</p>
                 <p className="text-green-700 text-sm mt-1">
-                  Your church members and blast history are automatically saved to Google Sheets.
+                  Your church members and blast history are automatically saved
+                  to Google Sheets.
                 </p>
               </div>
 
