@@ -14,13 +14,26 @@
   },
   "devDependencies": {
     "@bubblewrap/cli": "^1.24.1",
-    "autoprefixer": "^10.4.23",
+    "autoprefixer": "10.4.23",
     "concurrently": "^9.2.1",
     "electron": "^39.2.7",
     "electron-builder": "^26.0.12",
-    "postcss": "^8.5.6",
+    "postcss": "8.5.6",
     "tailwindcss": "3.4.19",
-    "typescript": "^5.9.3",
+    "typescript": "5.9.3",
     "vercel": "^50.1.5"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/node": "20.11.30",
+      "typescript": "5.9.3",
+      "next": "16.1.1",
+      "react": "19.2.3",
+      "react-dom": "19.2.3",
+      "tailwindcss": "3.4.19"
+    }
+  },
+  "engines": {
+    "node": ">=18.18.0"
   }
 }
