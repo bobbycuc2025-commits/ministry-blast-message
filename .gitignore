@@ -1,0 +1,12 @@
+node_modules/
+.next/
+dist/
+out/
+.env
+.env.local
+*.log
+.wwebjs_auth/
+.wa-data/
+google-credentials.json
+uploads/
+.DS_Store

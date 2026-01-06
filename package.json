@@ -1,0 +1,23 @@
+{
+  "name": "ministry-messenger",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter @ministry/api dev\" \"pnpm --filter @ministry/ui dev\" \"pnpm --filter @ministry/main dev\"",
+    "build": "pnpm --filter @ministry/api build && pnpm --filter @ministry/ui build && pnpm --filter @ministry/main build",
+    "build:electron": "pnpm build && electron-builder",
+    "build:pwa": "pnpm --filter @ministry/ui build && pnpm pwa:generate",
+    "build:twa": "pnpm build:pwa && bubblewrap build",
+    "pwa:generate": "node scripts/generate-pwa-assets.js",
+    "twa:init": "bubblewrap init --manifest https://your-domain.vercel.app/manifest.json",
+    "deploy": "vercel --prod"
+  },
+  "devDependencies": {
+    "@bubblewrap/cli": "^1.20.0",
+    "concurrently": "^8.2.2",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1",
+    "typescript": "^5.3.3",
+    "vercel": "^33.0.1"
+  }
+}

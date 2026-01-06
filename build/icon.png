@@ -1,0 +1,29 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <circle cx="128" cy="128" r="120" fill="url(#gradient)" />
+  
+  <path d="M80,100 L176,100 L176,140 L80,140 Z" fill="white" opacity="0.9"/>
+  <path d="M80,120 L140,120 L140,160 L80,160 Z" fill="white" opacity="0.9"/>
+  <path d="M100,140 L176,140 L176,180 L100,180 Z" fill="white" opacity="0.9"/>
+  
+  <!-- Message lines -->
+  <path d="M90,110 L130,110" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <path d="M90,130 L110,130" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  
+  <path d="M110,150 L150,150" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <path d="M110,170 L130,170" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Megaphone -->
+  <path d="M180,120 L220,100 L220,156 L180,136 Z" fill="#10B981" opacity="0.9"/>
+  <circle cx="200" cy="128" r="20" fill="#10B981" opacity="0.9"/>
+  
+  <!-- Cross -->
+  <path d="M200,118 L200,138" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <path d="M190,128 L210,128" stroke="white" stroke-width="4" stroke-linecap="round"/>
+</svg>

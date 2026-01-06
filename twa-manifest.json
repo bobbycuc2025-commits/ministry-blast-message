@@ -1,0 +1,51 @@
+{
+  "packageId": "com.ministry.messenger",
+  "host": "your-domain.vercel.app",
+  "name": "Ministry Messenger",
+  "launcherName": "MinistryMsg",
+  "display": "standalone",
+  "themeColor": "#2563eb",
+  "navigationColor": "#ffffff",
+  "backgroundColor": "#ffffff",
+  "enableNotifications": true,
+  "startUrl": "/",
+  "iconUrl": "https://your-domain.vercel.app/icons/icon-512x512.png",
+  "maskableIconUrl": "https://your-domain.vercel.app/icons/icon-512x512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "./android.keystore",
+    "alias": "android"
+  },
+  "appVersionName": "1.0.0",
+  "appVersionCode": 1,
+  "shortcuts": [
+    {
+      "name": "New Blast",
+      "short_name": "New Blast",
+      "url": "/compose",
+      "icon": "https://your-domain.vercel.app/icons/icon-192x192.png"
+    },
+    {
+      "name": "Upload Contacts",
+      "short_name": "Upload",
+      "url": "/upload",
+      "icon": "https://your-domain.vercel.app/icons/icon-192x192.png"
+    }
+  ],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://your-domain.vercel.app/manifest.json",
+  "fallbackType": "customtabs",
+  "features": {
+    "locationDelegation": {
+      "enabled": false
+    },
+    "playBilling": {
+      "enabled": false
+    }
+  },
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "minSdkVersion": 21,
+  "targetSdkVersion": 33
+}

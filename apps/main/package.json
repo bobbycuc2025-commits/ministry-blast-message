@@ -1,0 +1,19 @@
+{
+  "name": "@ministry/main",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "tsc && electron .",
+    "build": "tsc",
+    "start": "electron .",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "electron-is-dev": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "electron": "^28.3.3",
+    "typescript": "^5.3.3"
+  }
+}
