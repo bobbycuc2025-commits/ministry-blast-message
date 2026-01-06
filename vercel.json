@@ -1,9 +1,5 @@
 {
-  "projects": [
-    {
-      "rootDirectory": "apps/ui",
-      "buildCommand": "pnpm export",
-      "outputDirectory": "out"
-    }
-  ]
+  "rootDirectory": "apps/ui",
+  "buildCommand": "pnpm export",
+  "outputDirectory": "out"
 }
