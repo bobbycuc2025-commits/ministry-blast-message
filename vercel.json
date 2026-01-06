@@ -1,4 +1,9 @@
 {
-  "buildCommand": "pnpm --filter @ministry/ui export",
-  "outputDirectory": "apps/ui/out"
+  "projects": [
+    {
+      "rootDirectory": "apps/ui",
+      "buildCommand": "pnpm export",
+      "outputDirectory": "out"
+    }
+  ]
 }
