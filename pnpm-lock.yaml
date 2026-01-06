@@ -147,6 +147,9 @@ importers:
       electron:
         specifier: ^39.2.7
         version: 39.2.7
+      electron-builder:
+        specifier: ^26.0.12
+        version: 26.0.12(electron-builder-squirrel-windows@26.0.12)
       typescript:
         specifier: 5.9.3
         version: 5.9.3

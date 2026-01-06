@@ -31,7 +31,19 @@
       "react": "19.2.3",
       "react-dom": "19.2.3",
       "tailwindcss": "3.4.19"
-    }
+    },
+    "ignoredBuiltDependencies": [
+      "@nestjs/core",
+      "@open-wa/wa-automate",
+      "cloudflared",
+      "electron",
+      "electron-winstaller",
+      "esbuild",
+      "puppeteer",
+      "sharp",
+      "sleep",
+      "unix-dgram"
+    ]
   },
   "engines": {
     "node": ">=18.18.0"
